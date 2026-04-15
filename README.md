@@ -1,73 +1,83 @@
-# React + TypeScript + Vite
+# 🚀 AI Utility Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, full-stack web application featuring AI-powered tools and communication utilities. Built with a React + Vite frontend and a Node.js + TypeScript backend, this project showcases real-time object detection, SMS messaging, and secure contact workflows.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+### 🧠 Object Detection (AI)
+- Real-time object detection using webcam
+- Powered by TensorFlow.js and COCO-SSD
+- Canvas overlay with bounding boxes
+- Live video processing in the browser
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### 📩 SMS Sender
+- Send SMS messages via API
+- Secure password-protected access
+- Emoji keyboard support 😊
+- Backend validation using environment variables
 
-## Expanding the ESLint configuration
+### 📬 Contact Me
+- Users can send messages directly from the app
+- Email delivery using Nodemailer + Gmail
+- Spam protection via honeypot field
+- Backend validation and error handling
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### 🔐 Security
+- Password-protected endpoints for sensitive actions
+- Environment variable usage for secrets
+- Basic anti-spam measures
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🧱 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Frontend
+- React (with TypeScript)
+- Vite
+- React Router
+- TensorFlow.js (`@tensorflow/tfjs`)
+- COCO-SSD model (`@tensorflow-models/coco-ssd`)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Backend
+- Node.js
+- Express
+- TypeScript
+- Nodemailer (Gmail SMTP)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🎨 UI Improvements (Planned / Ideas)
+
+- Dark mode toggle 🌙  
+- Animated hover effects  
+- Modern font integration  
+- Better emoji picker UX  
+- Mobile responsiveness  
+
+---
+
+## 🧠 Future Enhancements
+
+- AI chat assistant component  
+- Image upload + detection (not just webcam)  
+- Message history / logs  
+- User authentication (JWT)  
+- Rate limiting for APIs  
+
+---
+
+## 🐛 Known Issues
+
+- Emoji picker may overflow container  
+- Webcam permissions required for object detection  
+- Gmail SMTP may fail without proper setup  
+
+---
+
+## 📌 Notes
+
+- This project is designed as a **modular set of standalone tools**  
+- Focused on **real-time interaction + practical utilities**  
+- Built to demonstrate both **frontend UX** and **backend API design**
