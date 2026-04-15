@@ -148,7 +148,7 @@ function Webcam() {
           zIndex: 10,
         }}
       >
-        ← Back
+        ⬅️ Back
       </button>
 
       <h1>📦 Recognize Objects 📦</h1>

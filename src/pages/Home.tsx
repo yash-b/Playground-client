@@ -31,6 +31,7 @@ function Home() {
   };
 
   return (
+    
     <div
       style={{
         display: "flex",
@@ -41,7 +42,26 @@ function Home() {
         margin: "0 auto",
         gap: "30px",
       }}
-    >
+    > 
+      <button
+        onClick={() => { window.location.href = "https://yash-b.github.io/"; }}
+        style={{
+          position: "absolute",
+          top: 20,
+          left: 20,
+          padding: "10px 14px",
+          borderRadius: "10px",
+          border: "1px solid rgba(255,255,255,0.2)",
+          background: "rgba(0,0,0,0.5)",
+          color: "white",
+          cursor: "pointer",
+          backdropFilter: "blur(10px)",
+          fontWeight: 600,
+          zIndex: 10,
+        }}
+      >
+        ⬅️ Home
+      </button>     
       {/* 🔷 INFO / HERO SECTION */}
       <div
         style={{
@@ -54,11 +74,11 @@ function Home() {
         }}
       >
         <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>
-          Yash's Tech Playground
+          🛝 My Playground 🎢
         </h1>
 
         <p style={{ opacity: 0.75, lineHeight: "1.5" }}>
-          This app lets you explore Detect and label objects instantly, send SMS messages, and get data about a country.
+          This app lets you detect and label objects instantly, send SMS messages, and something else that I haven't decided yet.
           Get in touch with me, if you would like.
         </p>
       </div>
@@ -91,11 +111,14 @@ function Home() {
         </div>
 
         <div
-          style={cardStyle}
+          style={{
+            ...cardStyle,
+            cursor: "not-allowed"
+          }}
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-          ⚙️ Settings
+          🚧 Under Construction 🚧
         </div>
 
         <div
@@ -104,7 +127,7 @@ function Home() {
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-           📞  Contact Me
+           📞 Contact Me 📞
         </div>
       </div>
     </div>

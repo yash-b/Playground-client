@@ -18,7 +18,7 @@ function SmsPage() {
   const handleUnlock = async () => {
     setError("");
 
-    const res = await fetch("/verify-password", {
+    const res = await fetch("https://playground-server-production.up.railway.app/verify-password", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
@@ -169,7 +169,7 @@ function SmsPage() {
           zIndex: 10,
         }}
       >
-        ← Back
+        ⬅️ Back
       </button>
 
       <h1>📨 Send SMS 📨</h1>
