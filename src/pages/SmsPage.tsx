@@ -15,13 +15,26 @@ function SmsPage() {
   const [company, setCompany] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
 
-  const handleUnlock = () => {
+  const handleUnlock = async () => {
+    setError("");
+
+    const res = await fetch("/verify-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password }),
+    });
+
+    if (!res.ok) {
+      setError("Incorrect password");
+      return;
+    }
+
     setIsUnlocked(true);
   };
 
-const onEmojiClick = (emojiData: any) => {
-  setMessage((prev) => prev + emojiData.emoji);
-};
+  const onEmojiClick = (emojiData: any) => {
+    setMessage((prev) => prev + emojiData.emoji);
+  };
 
   const sendSms = async () => {
     setLoading(true);
@@ -44,7 +57,6 @@ const onEmojiClick = (emojiData: any) => {
       if (!res.ok) {
         if (res.status === 401) {
           setStatus("❌ Incorrect password");
-          setIsUnlocked(false);
           return;
         }
         throw new Error("Failed to send SMS");
