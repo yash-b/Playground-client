@@ -28,7 +28,7 @@ const onEmojiClick = (emojiData: any) => {
     setStatus(null);
 
     try {
-      const res = await fetch("http://localhost:5000/send-sms", {
+      const res = await fetch("https://playground-server-production.up.railway.app/send-sms", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
