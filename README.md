@@ -81,3 +81,27 @@ A modern, full-stack web application featuring AI-powered tools and communicatio
 - This project is designed as a **modular set of standalone tools**  
 - Focused on **real-time interaction + practical utilities**  
 - Built to demonstrate both **frontend UX** and **backend API design**
+
+## 📸 Screenshots
+
+### 🏠 Home Page
+
+<p align="center">
+  <img src="./screencaps/home.jpg" width="700"/>
+</p>
+
+---
+
+### 🧠 Object Detection
+
+<p align="center">
+  <img src="./screencaps/object.png" width="700"/>
+</p>
+
+---
+
+### 📩 SMS Page
+
+<p align="center">
+  <img src="./screencaps/sms.png" width="700"/>
+</p>
