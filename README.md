@@ -95,7 +95,7 @@ A modern, full-stack web application featuring AI-powered tools and communicatio
 ### 🧠 Object Detection
 
 <p align="center">
-  <img src="./screencaps/object.png" width="700"/>
+  <img src="./screencaps/object.jpg" width="700"/>
 </p>
 
 ---
@@ -103,5 +103,5 @@ A modern, full-stack web application featuring AI-powered tools and communicatio
 ### 📩 SMS Page
 
 <p align="center">
-  <img src="./screencaps/sms.png" width="700"/>
+  <img src="./screencaps/sms.jpg" width="700"/>
 </p>
