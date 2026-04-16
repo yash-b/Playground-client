@@ -7,7 +7,7 @@ function Contact() {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [company, setCompany] = useState("");
-
+  const API_URL = import.meta.env.VITE_API_URL;
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
@@ -34,7 +34,7 @@ function Contact() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://playground-server-production.up.railway.app/contact-me", {
+      const res = await fetch(`${API_URL}/contact-me`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

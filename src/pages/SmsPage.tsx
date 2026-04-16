@@ -15,13 +15,14 @@ function SmsPage() {
   const [company, setCompany] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
   const [shake, setShake] = useState(false);
-  const emojiRef = useRef(null);
+  const emojiRef = useRef<HTMLDivElement | null>(null);
+  const API_URL = import.meta.env.VITE_API_URL;
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
+    const handleClickOutside = (event: MouseEvent) => {
       if (
         emojiRef.current &&
-        !emojiRef.current.contains(event.target)
+        !emojiRef.current.contains(event.target as Node)
       ) {
         setShowEmojiPicker(false);
       }
@@ -39,7 +40,7 @@ function SmsPage() {
   const handleUnlock = async () => {
     setError("");
 
-    const res = await fetch("https://playground-server-production.up.railway.app/verify-password", {
+    const res = await fetch(`${API_URL}/verify-password`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ password }),
@@ -67,7 +68,7 @@ function SmsPage() {
     setStatus(null);
 
     try {
-      const res = await fetch("https://playground-server-production.up.railway.app/send-sms", {
+      const res = await fetch(`${API_URL}/send-sms`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -280,6 +281,7 @@ function SmsPage() {
           <input
             placeholder="Company Name"
             value={company}
+            onChange={(e) => setCompany(e.target.value)}
             style={{
               display: "none",
               width: "95%",
