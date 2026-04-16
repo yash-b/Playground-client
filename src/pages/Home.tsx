@@ -93,21 +93,43 @@ function Home() {
         }}
       >
         <div
-          style={cardStyle}
+          style={{    
+            ...cardStyle,
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px"
+          }}
           onClick={() => navigate("/webcam")}
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-          📦 Recognize Objects 📦
+          <div style={{ fontSize: "18px", fontWeight: "600" }}>
+            📦 Recognize Objects 📦
+          </div>
+
+          <div style={{ marginTop: "8px", fontSize: "13px", opacity: 0.7 }}>
+            Detect objects in real-time using your webcam
+          </div>
         </div>
 
         <div
-          style={cardStyle}
+          style={{    
+            ...cardStyle,
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px"
+          }}
           onClick={() => navigate("/sms")}
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-          💬 Send SMS 💬
+          <div style={{ fontSize: "18px", fontWeight: "600" }}>
+            💬 Send SMS 💬
+          </div>
+
+          <div style={{ marginTop: "8px", fontSize: "13px", opacity: 0.7 }}>
+            Send SMS to any US phone number
+          </div>
         </div>
 
         <div
@@ -122,12 +144,24 @@ function Home() {
         </div>
 
         <div
-          style={cardStyle}
+          style={{    
+            ...cardStyle,
+            display: "flex",
+            flexDirection: "column",
+            gap: "6px"
+          }}
           onClick={() => navigate("/contactme")}
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-           📞 Contact Me 📞
+          <div style={{ fontSize: "18px", fontWeight: "600" }}>
+            📞 Contact Me 📞
+          </div>
+
+          <div style={{ marginTop: "8px", fontSize: "13px", opacity: 0.7 }}>
+            Send me an email and I'll get back to you
+          </div>
+           
         </div>
       </div>
     </div>

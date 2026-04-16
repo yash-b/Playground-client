@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import EmojiPicker from "emoji-picker-react";
 
@@ -14,7 +14,28 @@ function SmsPage() {
   const [error, setError] = useState("");
   const [company, setCompany] = useState("");
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
+  const [shake, setShake] = useState(false);
+  const emojiRef = useRef(null);
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        emojiRef.current &&
+        !emojiRef.current.contains(event.target)
+      ) {
+        setShowEmojiPicker(false);
+      }
+    };
+
+    if (showEmojiPicker) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showEmojiPicker]);
+  
   const handleUnlock = async () => {
     setError("");
 
@@ -25,7 +46,12 @@ function SmsPage() {
     });
 
     if (!res.ok) {
-      setError("Incorrect password");
+      setShake(true);
+
+      setTimeout(() => {
+        setShake(false);
+      }, 500);
+      setError("❌ Incorrect password");
       return;
     }
 
@@ -91,6 +117,20 @@ function SmsPage() {
             zIndex: 999,
           }}
         >
+          <style>
+            {`
+            @keyframes shake {
+              0% { transform: translateX(0); }
+              15% { transform: translateX(-10px) rotate(-1deg); }
+              30% { transform: translateX(10px) rotate(1deg); }
+              45% { transform: translateX(-8px) rotate(-1deg); }
+              60% { transform: translateX(8px) rotate(1deg); }
+              75% { transform: translateX(-5px); }
+              100% { transform: translateX(0); }
+            }
+            `}
+          </style>
+
           <div
             style={{
               background: "#111",
@@ -99,9 +139,21 @@ function SmsPage() {
               textAlign: "center",
               width: "300px",
               border: "1px solid rgba(255,255,255,0.1)",
+              animation: shake ? "shake 0.3s ease-in-out" : "none",
             }}
           >
             <h2 style={{ color: "white" }}>🔒 Enter Password</h2>
+            <p
+              style={{
+                color: "rgba(255,255,255,0.6)",
+                fontSize: "12px",
+                marginTop: "6px",
+                marginBottom: "14px",
+                lineHeight: "1.4",
+              }}
+            >
+              SMS access is restricted. Contact me for the password. 🙂
+            </p>
 
             <input
               type="password"
@@ -135,7 +187,22 @@ function SmsPage() {
             >
               Unlock
             </button>
-
+            <button
+              onClick={() => window.history.back()}
+              style={{
+                width: "100%",
+                marginTop: "8px",
+                padding: "10px",
+                borderRadius: "8px",
+                border: "1px solid rgba(255,255,255,0.15)",
+                background: "#333",
+                color: "rgba(255,255,255,0.8)",
+                fontWeight: "bold",
+                cursor: "pointer",
+              }}
+            >
+              Go Back
+            </button>
             {error && (
               <p style={{ color: "red", marginTop: "10px" }}>{error}</p>
             )}
@@ -265,6 +332,7 @@ function SmsPage() {
             {/* EMOJI PICKER */}
             {showEmojiPicker && (
               <div
+                ref={emojiRef}
                 style={{
                   position: "fixed",
                   top: "200px", 
