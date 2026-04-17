@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Webcam from "./pages/Webcam";
 import SmsPage from "./pages/SmsPage";
@@ -7,7 +7,7 @@ import ContactMe from "./pages/Contact"
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/webcam" element={<Webcam />} />
@@ -15,7 +15,7 @@ function App() {
         {/* <Route path="/countryinfo" element={<CountryInfo />} /> */}
         <Route path="/contactme" element={<ContactMe />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
