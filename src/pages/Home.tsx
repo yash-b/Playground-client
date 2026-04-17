@@ -39,6 +39,7 @@ function Home() {
         alignItems: "center",
         padding: "40px 20px",
         maxWidth: "1000px",
+        width: "100%",
         margin: "0 auto",
         gap: "30px",
       }}
@@ -46,10 +47,11 @@ function Home() {
       <button
         onClick={() => { window.location.href = "https://yash-b.github.io/"; }}
         style={{
-          position: "absolute",
-          top: 20,
-          left: 20,
-          padding: "10px 14px",
+          position: "fixed",
+          top: 12,
+          left: 12,
+          padding: "8px 10px",
+          fontSize: "12px",
           borderRadius: "10px",
           border: "1px solid rgba(255,255,255,0.2)",
           background: "rgba(0,0,0,0.5)",
@@ -73,7 +75,7 @@ function Home() {
           backdropFilter: "blur(12px)",
         }}
       >
-        <h1 style={{ fontSize: "28px", marginBottom: "10px" }}>
+        <h1 style={{ fontSize: "clamp(20px, 5vw, 28px)", marginBottom: "10px" }}>
           🛝 My Playground 🎢
         </h1>
 
@@ -87,7 +89,7 @@ function Home() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "1fr 1fr",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
           gap: "24px",
           width: "100%",
         }}
@@ -140,8 +142,32 @@ function Home() {
           onMouseEnter={hover}
           onMouseLeave={reset}
         >
-          🚧 Under Construction 🚧
+          🚧 Under Construction #1🚧
         </div>
+
+                <div
+          style={{
+            ...cardStyle,
+            cursor: "not-allowed"
+          }}
+          onMouseEnter={hover}
+          onMouseLeave={reset}
+        >
+          🚧 Under Construction #2🚧
+        </div>
+
+
+        <div
+          style={{
+            ...cardStyle,
+            cursor: "not-allowed"
+          }}
+          onMouseEnter={hover}
+          onMouseLeave={reset}
+        >
+          🚧 Under Construction #3🚧
+        </div>
+
 
         <div
           style={{    
